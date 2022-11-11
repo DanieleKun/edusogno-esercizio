@@ -1,11 +1,15 @@
 <?php
 include __DIR__ . '/layout/header.html';
+include __DIR__ . 'events.php';
+require_once('config.php');
+include('events.php');
+
 session_start();
 
- if (!isset($_SESSION['success']) || $_SESSION['success'] != true) {
-     header("location: login.html");
+if (!isset($_SESSION['success']) || $_SESSION['success'] != true) {
+    header("location: login.html");
     exit;
- }
+}
 
 
 ?>
@@ -22,13 +26,23 @@ session_start();
 </head>
 
 <body>
-    <main class="my-form">
-        <?php echo "<h2>Ciao<h2>" . $_SESSION["name"] . $_SESSION["lastname"]; ?>
+    <main class="container">
+        <h2>Ciao <?= $_SESSION['name']; ?> <?= $_SESSION['lastname']; ?> ecco i tuoi eventi</h2>
 
+        <div class="card_container">
+        <?php foreach ($user_events as $event) : ?>
+            <section class="card">
+                <h3><?= $event['nome_evento'] ?></h3>
+                <p><?= $event['data_evento'] ?></p>
+                <button name="join" class="button">JOIN</button>
+            </section>
+        <?php endforeach; ?>
+        </div>
 
-        <button><a href="logout.php">Esci</a></button>
+        <button class="btn_logout"><a href="logout.php">Logout</a></button>
 
     </main>
+
 </body>
 
 </html>

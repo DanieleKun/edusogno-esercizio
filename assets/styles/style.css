@@ -61,6 +61,7 @@ header{
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 button{
@@ -83,4 +84,43 @@ button a{
 
 .my_button a{
     color: #134077;
+}
+
+/* Personal events */
+.container{
+    text-align: center;
+}
+
+.container h2{
+    color:#134077;
+}
+
+.card_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #134077;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    margin: 20px;
+}
+
+.card p{
+    color: gray;
+}
+
+.card button{
+    width: 150px;
+}
+
+.btn_logout{
+    background-color: #134077;
+    width: 200px;
+    margin-top: 100px;
 }
